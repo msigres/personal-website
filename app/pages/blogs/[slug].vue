@@ -2,14 +2,13 @@
 
 const route = useRoute()
 
-const { data: post } = await useAsyncData(() => queryCollection('content').path(`/post/${route.params.slug}`).first())
+const { data: post } = await useAsyncData(() => queryCollection('content').path(`/blogs/${route.params.slug}`).first())
 if (!post.value) {
   throw createError({
     status: 404,
     statusText: 'Page Not Found',
   })
 }
-
 
 useSeoMeta({
   title: post.value?.title,

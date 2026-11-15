@@ -5,6 +5,9 @@ export default defineContentConfig({
     content: defineCollection({
       type: 'page',
       source: '**/*.md',
+      schema: z.object({
+        link: z.string().optional(),
+      })
     })
   }
 })
