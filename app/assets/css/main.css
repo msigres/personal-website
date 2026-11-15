@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+
+/* =========================================
+   PREFLIGHT
+   ========================================= */
+
+@layer base {
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+
+/* =========================================
+   TERMINAL GARDEN — DESIGN TOKENS
+   ========================================= */
+
+@theme static {
+  /* Typography */
+  --font-sans: "Geist Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Brand green palette */
+  --color-green-50: #F1F5F1;
+  --color-green-100: #E3ECE4;
+  --color-green-200: #C8DCCB;
+  --color-green-300: #AAC9AE;
+  --color-green-400: #91B397;
+  --color-green-500: #688C70;
+  --color-green-600: #54745C;
+  --color-green-700: #405C48;
+  --color-green-800: #304636;
+  --color-green-900: #223329;
+  --color-green-950: #141F18;
+}
+
+/* =========================================
+   LIGHT MODE
+   ========================================= */
+
+:root {
+  color-scheme: light;
+
+  /* Brand */
+  --ui-primary: var(--ui-color-primary-600);
+  --ui-success: var(--ui-color-success-600);
+
+  /* Background */
+  --ui-bg: #F5F5F0;
+  --ui-bg-muted: #EEEEEA;
+  --ui-bg-elevated: #FFFFFF;
+  --ui-bg-accented: #E7E8E2;
+  --ui-bg-inverted: #202321;
+
+  /* Text */
+  --ui-text-dimmed: #A0A39B;
+  --ui-text-muted: #777D74;
+  --ui-text-toned: #555D54;
+  --ui-text: #353B35;
+  --ui-text-highlighted: #202321;
+  --ui-text-inverted: #F5F5F0;
+
+  /* Borders */
+  --ui-border: #E1E3DC;
+  --ui-border-muted: #E9EAE5;
+  --ui-border-accented: #D2D6CD;
+  --ui-border-inverted: #202321;
+
+  /* Shape */
+  --ui-radius: 0.375rem;
+
+  /* Layout */
+  --ui-container: 64rem;
+}
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+.dark {
+  color-scheme: dark;
+
+  /* Brand */
+  --ui-primary: var(--ui-color-primary-400);
+  --ui-success: var(--ui-color-success-400);
+
+  /* Background */
+  --ui-bg: #171A18;
+  --ui-bg-muted: #1C211D;
+  --ui-bg-elevated: #202521;
+  --ui-bg-accented: #2A312B;
+  --ui-bg-inverted: #E6EAE5;
+
+  /* Text */
+  --ui-text-dimmed: #626B62;
+  --ui-text-muted: #929B91;
+  --ui-text-toned: #B2BBB1;
+  --ui-text: #D0D7CF;
+  --ui-text-highlighted: #E6EAE5;
+  --ui-text-inverted: #171A18;
+
+  /* Borders */
+  --ui-border: #303830;
+  --ui-border-muted: #272F28;
+  --ui-border-accented: #3B453C;
+  --ui-border-inverted: #E6EAE5;
+}
+
+/* =========================================
+   GLOBAL STYLES
+   ========================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased bg-default text-default;
+  font-family: var(--font-sans);
+}
+
+/* Selection */
+::selection {
+  background: #AAC9AE;
+  color: #202321;
+}
+
+.dark ::selection {
+  background: #405C48;
+  color: #F5F5F0;
+}
+
+
+/* Keyframes */
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
