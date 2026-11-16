@@ -4,8 +4,10 @@ description: 'EFT Indonesia is a digital platform designed to collect, manage, a
 image: '/images/eftindonesia.png'
 link: 'https://eftindonesia.org'
 featured: true
-category: project
+category: 'project'
 tags: ["Next JS", "Express JS", "Prisma ORM"]
+author: 'sergi'
+date: 2025-8-1
 ---
 
 # EFT Indonesia

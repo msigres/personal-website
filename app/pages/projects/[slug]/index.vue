@@ -3,7 +3,7 @@ import type { BreadcrumbItem } from '@nuxt/ui'
 
 
 const route = useRoute()
-const url = useRequestURL()
+const { origin } = useRequestURL()
 
 const { data: page } = await useAsyncData(() => queryCollection('content').path(`/projects/${route.params.slug}`).first())
 if (!page.value) {
@@ -21,7 +21,8 @@ useSeoMeta({
   ogTitle: title,
   description,
   ogDescription: description,
-  ogImage: `${url.origin}${page.value.image}`
+  author: page.value.author,
+  ogImage: `${origin}${page.value.image}`,
 })
 
 const items = ref<BreadcrumbItem[]>([

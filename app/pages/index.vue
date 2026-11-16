@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import Techstack from '~/components/home/Techstack.vue'
 
 const title = "Hello, World!"
 const description = "Hi, i'm Sergi. I'm a Software Developer."
@@ -92,29 +92,7 @@ const { data: projects } = await useAsyncData('projects-list',
 
 
   <!-- Tech Stack Start -->
-  <main class="py-24 space-y-8">
-    <p class="text-muted text-xs font-mono text-right">03 / TECH_STACK.md</p>
-
-    <h2 class="text-2xl md:text-3xl font-mono">
-      Tools I work with.
-    </h2>
-
-    Languages
-
-    JavaScript · TypeScript · Python
-
-    Frontend
-
-    React · Next.js · Tailwind CSS
-
-    Backend
-
-    Node.js · Express · PostgreSQL
-
-    Tools
-
-    Git · Docker · VS Code
-  </main>
+  <Techstack />
   <!-- Tech Stack End -->
 
 
@@ -134,7 +112,7 @@ const { data: projects } = await useAsyncData('projects-list',
         <template #header>
           <NuxtLink :to="project.path">
             <img class="w-full select-none aspect-video object-cover" style="-webkit-user-drag: none;"
-              :src="project.image" alt="">
+              :src="project.image" :alt="project.title">
           </NuxtLink>
         </template>
 
