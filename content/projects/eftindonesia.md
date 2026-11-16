@@ -1,7 +1,11 @@
 ---
 title: 'EFT Indonesia'
 description: 'EFT Indonesia is a digital platform designed to collect, manage, and disseminate information about Ecology initiatives in Indonesia.'
+image: '/images/eftindonesia.png'
 link: 'https://eftindonesia.org'
+featured: true
+category: project
+tags: ["Next JS", "Express JS", "Prisma ORM"]
 ---
 
 # EFT Indonesia

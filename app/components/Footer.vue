@@ -1,6 +1,6 @@
 <template>
   <header class="flex items-center justify-between py-6 border-t border-default">
-    <span class="font-mono font-semibold text-highlighted">
+    <span class="text-sm font-mono font-semibold text-highlighted">
       © 2026 Sergi
     </span>
 

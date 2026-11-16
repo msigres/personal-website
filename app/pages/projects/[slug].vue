@@ -3,6 +3,7 @@ import type { BreadcrumbItem } from '@nuxt/ui'
 
 
 const route = useRoute()
+const url = useRequestURL()
 
 const { data: page } = await useAsyncData(() => queryCollection('content').path(`/projects/${route.params.slug}`).first())
 if (!page.value) {
@@ -12,11 +13,15 @@ if (!page.value) {
   })
 }
 
+const title = page.value.title
+const description = page.value.description
+
 useSeoMeta({
-  title: page.value.title,
-  ogTitle: page.value.title,
-  description: page.value.description,
-  ogDescription: page.value.description,
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description,
+  ogImage: `${url.origin}${page.value.image}`
 })
 
 const items = ref<BreadcrumbItem[]>([
@@ -37,9 +42,15 @@ const items = ref<BreadcrumbItem[]>([
 </script>
 
 <template>
-  <div class="py-12 space-y-8">
-    <UBreadcrumb :items="items" />
+  <div class="py-12 space-y-8" v-if="page">
+    <div class="flex justify-center">
+      <UBreadcrumb :items="items" />
+    </div>
 
-    <ContentRenderer v-if="page" :value="page" />
+    <div class="flex flex-wrap gap-2">
+      <UBadge v-for="framework in page.tags" variant="outline">{{ framework }}</UBadge>
+    </div>
+
+    <ContentRenderer :value="page" />
   </div>
 </template>

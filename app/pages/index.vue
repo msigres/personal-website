@@ -12,7 +12,13 @@ useSeoMeta({
   ogDescription: description
 })
 
-const { data: projects } = await useAsyncData('projects-list', () => queryCollection('content').where('path', 'LIKE', '/projects/%').limit(3).all())
+const { data: projects } = await useAsyncData('projects-list',
+  () => queryCollection('content')
+    .where('category', '=', 'project')
+    .where('featured', '=', true)
+    .limit(3)
+    .all()
+)
 
 </script>
 
@@ -128,7 +134,7 @@ const { data: projects } = await useAsyncData('projects-list', () => queryCollec
         <template #header>
           <NuxtLink :to="project.path">
             <img class="w-full select-none aspect-video object-cover" style="-webkit-user-drag: none;"
-              src="/images/eftindonesia.png" alt="">
+              :src="project.image" alt="">
           </NuxtLink>
         </template>
 
@@ -140,8 +146,12 @@ const { data: projects } = await useAsyncData('projects-list', () => queryCollec
 
         <p class="text-toned">{{ project.description }}</p>
 
+        <div class="flex flex-wrap gap-2">
+          <UBadge v-for="framework in project.tags" variant="outline">{{ framework }}</UBadge>
+        </div>
+
         <div class="text-end" v-if="project.link">
-          <UButton :to="project.link" target="_blank" color="primary" variant="link">
+          <UButton :to="project.link" target="_blank" color="primary" variant="link" class="px-0">
             View
             <UIcon name="i-lucide-arrow-up-right" />
           </UButton>

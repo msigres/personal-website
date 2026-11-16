@@ -1,7 +1,7 @@
 <template>
   <header class="flex items-center justify-between py-6 border-b border-default">
     <NuxtLink to="/">
-      <span class="font-mono font-semibold text-highlighted">
+      <span class="text-base md:text-lg font-mono font-semibold text-highlighted">
         ser.gi
       </span>
     </NuxtLink>
