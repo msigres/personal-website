@@ -155,10 +155,14 @@ const { data: projects } = await useAsyncData('projects-list',
       What I'm up to.
     </h2>
 
-    <ul>
-      <li>
+    <div class="flex items-center gap-2">
+      <span class="size-2 rounded-full bg-primary animate-pulse" />
+
+      <span class="text-highlighted">
         Building something new
-      </li>
+      </span>
+    </div>
+    <ul>
       <li>
         Learning and exploring new technologies
       </li>

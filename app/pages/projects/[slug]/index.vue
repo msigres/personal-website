@@ -36,7 +36,7 @@ const items = ref<BreadcrumbItem[]>([
   },
   {
     label: page.value.title,
-    to: `/projects/${route.params.slug}`
+    to: page.value.path
   },
 ])
 

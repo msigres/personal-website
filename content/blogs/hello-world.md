@@ -1,6 +1,7 @@
 ---
 title: Hello, World!
 description: Hello, World!
+category: blog
 ---
 
 # Hello, World!
