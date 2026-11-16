@@ -1,62 +1,112 @@
 <script setup lang="ts">
 
-const listTech = [
+interface TerminalSegment {
+  text: string
+  style: string
+}
+
+interface TerminalLine {
+  segments: TerminalSegment[]
+}
+
+
+const listTech: TerminalLine[] = [
   {
-    segment: [
+    segments: [
       {
         text: "~/frontend $ ls",
         style: "title",
       },
       {
-        text: "- Vue",
+        text: "→ Vue",
         style: "list",
       },
       {
-        text: "- React",
+        text: "→ React",
         style: "list",
       },
       {
-        text: "- Nuxt JS",
+        text: "→ Nuxt JS",
         style: "list",
       },
       {
-        text: "- Next jS",
+        text: "→ Next jS",
         style: "list",
       },
       {
-        text: "- Tailwind",
+        text: "→ Tailwind",
         style: "list",
       },
     ]
   },
   {
-    segment: [
+    segments: [
       {
         text: "~/backend $ ls",
         style: "title",
       },
       {
-        text: "- Node JS",
+        text: "→ Node JS",
         style: "list",
       },
       {
-        text: "- Express JS",
+        text: "→ Express JS",
         style: "list",
       },
       {
-        text: "- Prisma ORM",
+        text: "→ Prisma ORM",
         style: "list",
       },
       {
-        text: "- Codeigniter",
+        text: "→ Codeigniter",
         style: "list",
       },
       {
-        text: "- Laravel",
+        text: "→ Laravel",
         style: "list",
       },
       {
-        text: "- Golang",
+        text: "→ Go Fiber",
+        style: "list",
+      },
+      {
+        text: "→ GORM",
+        style: "list",
+      },
+      {
+        text: "→ MariaDB",
+        style: "list",
+      },
+      {
+        text: "→ PostgreSQL",
+        style: "list",
+      },
+    ]
+  },
+  {
+    segments: [
+      {
+        text: "~/tools $ ls",
+        style: "title",
+      },
+      {
+        text: "→ Git",
+        style: "list",
+      },
+      {
+        text: "→ Figma",
+        style: "list",
+      },
+    ]
+  },
+  {
+    segments: [
+      {
+        text: "~/game-engine $ ls",
+        style: "title",
+      },
+      {
+        text: "→ Godot",
         style: "list",
       },
     ]
@@ -65,7 +115,8 @@ const listTech = [
 
 const lineStyle: Record<string, string> = {
   'title': 'text-highlighted',
-  'list': 'text-toned'
+  'list': 'text-toned',
+  'info': 'text-primary font-bold',
 }
 </script>
 
@@ -87,19 +138,12 @@ const lineStyle: Record<string, string> = {
           <span class="size-2.5 rounded-full bg-green-500" />
         </div>
 
-        <div class="min-h-50 p-5 font-mono text-[13px] leading-[1.8] sm:p-6">
-          <span v-for="s in data.segment" :class="`block ${lineStyle[s.style]}`">{{ s.text }}</span>
+        <div class="p-5 font-mono text-[13px] leading-[1.8] sm:p-6 sm:py-7">
+          <span v-for="s in data.segments" :class="`block ${lineStyle[s.style]}`">{{ s.text }}</span>
+          <span :class="`block ${lineStyle['info']}`">✓ Showed all {{ data.segments.length - 1 }} stack(s)</span>
         </div>
       </div>
 
     </div>
-
-    Backend
-
-    Node.js · Express · PostgreSQL
-
-    Tools
-
-    Git · Docker · VS Code
   </main>
 </template>

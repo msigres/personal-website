@@ -116,11 +116,13 @@ const { data: projects } = await useAsyncData('projects-list',
           </NuxtLink>
         </template>
 
+
         <h3 class="text-xl font-mono text-highlighted w-fit hover:underline">
           <NuxtLink :to="project.path">
             {{ project.title }}
           </NuxtLink>
         </h3>
+
 
         <p class="text-toned">{{ project.description }}</p>
 
@@ -128,7 +130,8 @@ const { data: projects } = await useAsyncData('projects-list',
           <UBadge v-for="framework in project.tags" variant="outline">{{ framework }}</UBadge>
         </div>
 
-        <div class="text-end" v-if="project.link">
+        <div class="flex flex-wrap justify-between items-center" v-if="project.link">
+          <p class="text-xs text-muted">{{ project.date }}</p>
           <UButton :to="project.link" target="_blank" color="primary" variant="link" class="px-0">
             View
             <UIcon name="i-lucide-arrow-up-right" />

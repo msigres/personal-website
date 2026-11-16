@@ -48,8 +48,11 @@ const items = ref<BreadcrumbItem[]>([
       <UBreadcrumb :items="items" />
     </div>
 
-    <div class="flex flex-wrap gap-2">
-      <UBadge v-for="framework in page.tags" variant="outline">{{ framework }}</UBadge>
+    <div class="space-y-4">
+      <div class="flex flex-wrap gap-2 items-center">
+        <UBadge v-for="framework in page.tags" variant="outline">{{ framework }}</UBadge>
+        <p class="ml-auto text-xs text-muted">{{ page.date }}</p>
+      </div>
     </div>
 
     <ContentRenderer :value="page" />

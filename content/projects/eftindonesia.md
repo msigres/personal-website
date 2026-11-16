@@ -7,7 +7,7 @@ featured: true
 category: 'project'
 tags: ["Next JS", "Express JS", "Prisma ORM"]
 author: 'sergi'
-date: 2025-8-1
+date: 2025-08-15
 ---
 
 # EFT Indonesia
