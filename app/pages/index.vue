@@ -53,7 +53,7 @@ const { data: projects } = await useAsyncData('projects-list',
       </p>
 
       <div class="flex flex-wrap gap-1">
-        <UBadge v-for="lang in langs" class="rounded-full" variant="outline" :key="lang">{{ lang }}
+        <UBadge v-for="lang in langs" class="rounded-full font-mono" variant="outline" :key="lang">{{ lang }}
         </UBadge>
       </div>
     </div>
@@ -158,18 +158,17 @@ const { data: projects } = await useAsyncData('projects-list',
     <div class="flex items-center gap-2">
       <span class="size-2 rounded-full bg-primary animate-pulse" />
 
-      <span class="text-highlighted">
+      <p class="text-highlighted">
         Building something new
-      </span>
+      </p>
     </div>
-    <ul>
-      <li>
-        Learning and exploring new technologies
-      </li>
-      <li>
-        Debugging things that worked yesterday
-      </li>
-    </ul>
+
+    <p class="text-toned">
+      → Learning and exploring new technologies
+    </p>
+    <p class="text-toned">
+      → Debugging things that worked yesterday
+    </p>
   </main>
   <!-- Currently End -->
 
@@ -182,14 +181,22 @@ const { data: projects } = await useAsyncData('projects-list',
       Let's build something.
     </h2>
 
-    Open to interesting projects, collaborations, and career opportunities.
+    <p class="text-highlighted">
+      Open to interesting projects, collaborations, and career opportunities.
+    </p>
 
-    hello@example.com ↗
-    GitHub ↗
-
-    LinkedIn ↗
-
-    Email ↗
+    <div class="flex flex-wrap gap-2">
+      <UButton to="mailto:sergisultanmk@gmail.com" variant="outline" icon="i-lucide-mail">
+        sergisultanmk@gmail.com
+      </UButton>
+      <UButton to="https://github.com/msigres" variant="outline" target="_blank" icon="i-lucide-github">
+        GitHub
+      </UButton>
+      <UButton to="https://linkedin.com/in/sergi-s-38b99a282/" target="_blank" variant="outline"
+        icon="i-lucide-linkedin">
+        LinkedIn
+      </UButton>
+    </div>
   </main>
   <!-- Contact End -->
 

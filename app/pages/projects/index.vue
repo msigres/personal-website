@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { BreadcrumbItem } from '@nuxt/ui';
+
 
 const { data: projects } = await useAsyncData('projects-list',
   () => queryCollection('content')
@@ -6,10 +8,25 @@ const { data: projects } = await useAsyncData('projects-list',
     .all()
 )
 
+const items = ref<BreadcrumbItem[]>([
+  {
+    label: 'Home',
+    to: '/'
+  },
+  {
+    label: 'Projects',
+    to: `/projects`
+  },
+])
+
 </script>
 
 <template>
-  <main class="py-18 space-y-10">
+  <main class="py-12 space-y-10">
+    <div class="flex justify-center">
+      <UBreadcrumb :items="items" />
+    </div>
+
     <h2 class="text-2xl md:text-3xl font-mono">
       My Project(s)
     </h2>
